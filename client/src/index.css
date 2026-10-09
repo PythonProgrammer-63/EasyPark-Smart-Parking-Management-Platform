@@ -1,0 +1,136 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased font-sans selection:bg-brand-500 selection:text-white;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 1rem !important;
+  padding: 4px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.leaflet-popup-content {
+  margin: 8px !important;
+  line-height: 1.4 !important;
+}
+
+.single-payment-receipt {
+  display: none;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  .single-payment-receipt,
+  .single-payment-receipt *,
+  .payment-modal-overlay,
+  .payment-modal-overlay .payment-modal-card,
+  .payment-receipt-print,
+  .payment-receipt-print * {
+    visibility: visible !important;
+  }
+
+  .single-payment-receipt {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    padding: 32px;
+    background: white;
+    color: #0f172a;
+    font-family: Arial, sans-serif;
+  }
+
+  .payment-modal-overlay {
+    position: static !important;
+    display: block !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    background: white !important;
+    backdrop-filter: none !important;
+  }
+
+  .payment-modal-card {
+    width: 100% !important;
+    max-width: none !important;
+    overflow: visible !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+
+  .payment-receipt-print {
+    position: static !important;
+    width: 100%;
+    padding: 32px;
+    background: white;
+    color: #0f172a;
+    font-family: Arial, sans-serif;
+  }
+
+  .payment-receipt-print button {
+    display: none !important;
+  }
+
+  .single-payment-receipt h1 {
+    margin: 0 0 8px;
+    font-size: 24px;
+  }
+
+  .single-payment-receipt .receipt-status {
+    margin: 0 0 24px;
+    color: #047857;
+    font-weight: 700;
+  }
+
+  .single-payment-receipt dl {
+    margin: 0;
+  }
+
+  .single-payment-receipt dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .single-payment-receipt dt {
+    color: #475569;
+  }
+
+  .single-payment-receipt dd {
+    margin: 0;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .single-payment-receipt .receipt-total {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}

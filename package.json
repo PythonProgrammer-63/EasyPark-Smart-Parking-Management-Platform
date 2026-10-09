@@ -1,0 +1,15 @@
+{
+  "name": "easypark",
+  "version": "1.0.0",
+  "description": "EasyPark - Smart Parking Information & Management Application",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "node server/server.js",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "seed": "node server/database/seed.js"
+  },
+  "keywords": ["parking", "easypark", "smart-city", "react", "express", "sqlite"],
+  "author": "EasyPark Team",
+  "license": "MIT"
+}
