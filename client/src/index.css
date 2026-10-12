@@ -1,0 +1,209 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-palette-canvas text-slate-900 antialiased font-sans selection:bg-brand-600 selection:text-white;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d2b68a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #222d52;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 1rem !important;
+  padding: 4px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.leaflet-popup-content {
+  margin: 8px !important;
+  line-height: 1.4 !important;
+}
+
+.single-payment-receipt {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm;
+  }
+
+  :root {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .single-payment-receipt,
+  .single-payment-receipt *,
+  .payment-modal-overlay,
+  .payment-modal-overlay .payment-modal-card,
+  .payment-receipt-print,
+  .payment-receipt-print * {
+    visibility: visible !important;
+  }
+
+  .single-payment-receipt {
+    display: block !important;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    padding: 0;
+    background: white;
+    color: #0f172a;
+    font-family: Arial, sans-serif;
+  }
+
+  .receipt-sheet {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 34px 40px;
+    border: 1px solid #dbe3ef;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, .08);
+  }
+
+  .receipt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #e8eef6;
+  }
+
+  .receipt-brand { display: flex; align-items: center; gap: 11px; }
+  .receipt-brand-mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: #0f766e;
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+  }
+  .receipt-brand strong { display: block; color: #0f172a; font-size: 20px; }
+  .receipt-brand small { display: block; margin-top: 3px; color: #64748b; font-size: 8px; letter-spacing: 2px; }
+  .receipt-heading { text-align: right; }
+  .receipt-heading span { display: block; color: #0f172a; font-size: 15px; font-weight: 800; letter-spacing: 1px; }
+  .receipt-heading strong { display: inline-block; margin-top: 6px; padding: 4px 8px; border-radius: 5px; background: #f1f5f9; color: #475569; font-size: 8px; letter-spacing: 1px; }
+  .receipt-success { display: flex; align-items: center; gap: 12px; margin: 24px 0; padding: 14px 16px; border: 1px solid #a7f3d0; border-radius: 12px; background: #ecfdf5; }
+  .receipt-success > span { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #059669; color: white; font-size: 18px; font-weight: 800; }
+  .receipt-success strong, .receipt-success small { display: block; }
+  .receipt-success strong { color: #065f46; font-size: 13px; }
+  .receipt-success small { margin-top: 3px; color: #047857; font-size: 10px; }
+  .receipt-success b { margin-left: auto; color: #047857; font-size: 10px; letter-spacing: 1px; }
+  .receipt-amount { margin-bottom: 26px; padding: 20px; border-radius: 13px; background: linear-gradient(120deg, #0f766e, #115e59); color: white; }
+  .receipt-amount small, .receipt-amount strong, .receipt-amount span { display: block; }
+  .receipt-amount small { opacity: .8; font-size: 9px; font-weight: 700; letter-spacing: 1.4px; }
+  .receipt-amount strong { margin: 6px 0; font-size: 30px; }
+  .receipt-amount span { opacity: .8; font-size: 9px; }
+  .receipt-sheet h2 { margin: 0 0 8px; color: #0f172a; font-size: 13px; }
+
+  .payment-modal-overlay {
+    position: static !important;
+    display: block !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    background: white !important;
+    backdrop-filter: none !important;
+  }
+
+  .payment-modal-card {
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+
+  .payment-receipt-print {
+    position: static !important;
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 32px;
+    border: 1px solid #dbe3ef;
+    border-radius: 16px;
+    background: white;
+    color: #0f172a;
+    font-family: Arial, sans-serif;
+  }
+
+  .payment-receipt-print button {
+    display: none !important;
+  }
+
+  .single-payment-receipt h1 {
+    margin: 0 0 8px;
+    font-size: 24px;
+  }
+
+  .receipt-sheet dl { margin: 0; }
+  .receipt-sheet dl > div { display: flex; justify-content: space-between; gap: 24px; padding: 11px 0; border-bottom: 1px solid #e8eef6; }
+  .receipt-sheet dt { color: #64748b; font-size: 10px; }
+  .receipt-sheet dd { max-width: 60%; margin: 0; color: #0f172a; font-size: 10px; font-weight: 700; text-align: right; overflow-wrap: anywhere; }
+  .receipt-sheet .receipt-mono { font-family: monospace; color: #0f766e; }
+  .receipt-footer { margin-top: 26px; padding-top: 15px; border-top: 1px dashed #cbd5e1; text-align: center; }
+  .receipt-footer strong, .receipt-footer span { display: block; }
+  .receipt-footer strong { color: #0f172a; font-size: 11px; }
+  .receipt-footer span { margin-top: 5px; color: #64748b; font-size: 9px; }
+
+  .single-payment-receipt .receipt-status {
+    margin: 0 0 24px;
+    color: #047857;
+    font-weight: 700;
+  }
+
+  .single-payment-receipt dl {
+    margin: 0;
+  }
+
+  .single-payment-receipt dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .single-payment-receipt dt {
+    color: #475569;
+  }
+
+  .single-payment-receipt dd {
+    margin: 0;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .single-payment-receipt .receipt-total {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
